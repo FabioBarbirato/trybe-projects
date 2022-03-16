@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // COLOQUE SEU CÓDIGO AQUI
+      // Buscar elemento pai
+      let fatherElementBody = document.body;
+      // Criar o elemento
+      let title = document.createElement("h1");
+      // Inserir (anexar) o elemento filho (title) ao elemento pai (body)
+      fatherElementBody.appendChild(title);
+      let text = document.createTextNode("Exercício 5.2 - JavaScript DOM ");
+      title.appendChild(text);
+
+      //criação do main com classe
+      let principal = document.createElement("main");
+      principal.classList.add(".main-content");
+      fatherElementBody.appendChild(principal);
+
+      //criação da tag section dentro da tag main
+      let ElementSection = document.createElement("section");
+      ElementSection.classList.add("center-content");
+      principal.appendChild(ElementSection);
+    </script>
+  </body>
+</html>
