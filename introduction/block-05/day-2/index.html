@@ -69,13 +69,68 @@
 
       //criação do main com classe
       let principal = document.createElement("main");
-      principal.classList.add(".main-content");
+      principal.classList.add("main-content");
       fatherElementBody.appendChild(principal);
 
       //criação da tag section dentro da tag main
-      let ElementSection = document.createElement("section");
-      ElementSection.classList.add("center-content");
-      principal.appendChild(ElementSection);
+      let elementSection = document.createElement("section");
+      elementSection.classList.add("center-content");
+      principal.appendChild(elementSection);
+
+      //criando tag p dentro de section e adicionando um texto
+      let elementP = document.createElement("p");
+      elementSection.appendChild(elementP);
+      let textParagraph = document.createTextNode("Teste parágrafo");
+      elementP.appendChild(textParagraph);
+
+      let elementSectionLeft = document.createElement("section");
+      elementSectionLeft.classList.add("left-content");
+      principal.appendChild(elementSectionLeft);
+
+      let elementSectionRight = document.createElement("section");
+      elementSectionRight.classList.add("right-content");
+      principal.appendChild(elementSectionRight);
+
+      //adicionando imagem na sectio esquerda
+      let imageLeft = document.createElement("img");
+      imageLeft.classList.add("small-image");
+      imageLeft.src = "https://picsum.photos/200";
+      elementSectionLeft.appendChild(imageLeft);
+
+      //criei uma lista não ordenada
+      let noOrdernedList = document.createElement("ul");
+      elementSectionRight.appendChild(noOrdernedList);
+
+      let listItens = [
+        "um",
+        "dois",
+        "tres",
+        "quatro",
+        "cinco",
+        "seis",
+        "sete",
+        "oito",
+        "nove",
+        "dez",
+      ];
+      for (let i = 0; i < listItens.length; i += 1) {
+        let listOne = document.createElement("li");
+        noOrdernedList.appendChild(listOne);
+        listOne.append(listItens[i]);
+      }
+      //criando 3 tahgs h3 dentro de main
+      for (let i = 0; i < 3; i += 1) {
+        let h3Titles = document.createElement("h3");
+        principal.appendChild(h3Titles);
+        h3Titles.classList.add("description");
+      }
+
+      //criando título para tag h1
+      title.classList.add("title");
+
+      //remove a section elementSectionLeft que está na classe pai main(principal)
+      principal.removeChild(elementSectionLeft);
+      
     </script>
   </body>
 </html>
