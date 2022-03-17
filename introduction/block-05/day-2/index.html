@@ -44,7 +44,7 @@
       }
 
       .main-content .right-content {
-        background-color: blue;
+        background-color: rgb(104, 104, 228);
         width: 60%;
         margin-left: auto;
         margin-right: 0;
@@ -130,7 +130,14 @@
 
       //remove a section elementSectionLeft que está na classe pai main(principal)
       principal.removeChild(elementSectionLeft);
-      
+
+      elementSectionRight.style.marginRight = "auto";
+      principal.style.backgroundColor = "rgb(76,164,109)";
+
+      //remove os 2 últimos itens da lista
+      for (let i = 0; i < 2; i += 1) {
+        noOrdernedList.removeChild(noOrdernedList.lastChild);
+      }
     </script>
   </body>
 </html>
