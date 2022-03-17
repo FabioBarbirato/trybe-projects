@@ -21,27 +21,71 @@ function createDaysOfTheWeek() {
 
 createDaysOfTheWeek();
 
+let listNorOrder = document.getElementById("days");
 // Escreva seu código abaixo.
 function createDaysOfMOnth() {
-const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-
-  let listNorOrder = document.getElementById('days');
+  const dezDaysList = [
+    29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+    20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+  ];
 
   for (let i = 0; i < dezDaysList.length; i += 1) {
-      const daysOfMonth = dezDaysList[i];
-      const liCreate = document.createElement("li");
-      liCreate.classList.add('day');
-      if (dezDaysList[i] === 24 || dezDaysList[i] === 25 || dezDaysList[i] === 31) {
-          liCreate.classList.add('holiday');
-      }
-      if (dezDaysList[i] === 4 || dezDaysList[i] === 11 || dezDaysList[i] === 18 || dezDaysList[i] === 25) {
-        liCreate.classList.add('friday');
-    }    
-      liCreate.innerHTML = daysOfMonth;
-
-      listNorOrder.appendChild(liCreate);
-
+    const daysOfMonth = dezDaysList[i];
+    const liCreate = document.createElement("li");
+    liCreate.classList.add("day");
+    if (
+      dezDaysList[i] === 24 ||
+      dezDaysList[i] === 25 ||
+      dezDaysList[i] === 31
+    ) {
+      liCreate.classList.add("holiday");
+    }
+    if (
+      dezDaysList[i] === 4 ||
+      dezDaysList[i] === 11 ||
+      dezDaysList[i] === 18 ||
+      dezDaysList[i] === 25
+    ) {
+      liCreate.classList.add("friday");
+    }
+    liCreate.innerHTML = daysOfMonth;
+    listNorOrder.appendChild(liCreate);
   }
 }
 createDaysOfMOnth();
+
+function btnHolidays(Feriados) {
+  let divBtn = document.querySelector(".buttons-container");
+  let btn = document.createElement("button");
+  btn.innerHTML = "Feriados";
+  btn.id = "btn-holiday";
+  divBtn.appendChild(btn);
+}
+btnHolidays();
+function clickHoliday() {
+  let clickButton = document.getElementById("btn-holiday");
+  clickButton.addEventListener("click", changeColor);
+}
+const standardColor = 'rgb(238,238,238)';
+const newColorChanges = 'blue';
+function changeColor() {
+  let holidayCalendar = document.getElementsByClassName("holiday");
+  for (let i = 0; i < holidayCalendar.length; i += 1){
+    if (holidayCalendar[i].style.backgroundColor === newColorChanges) {
+      holidayCalendar[i].style.backgroundColor = standardColor;
+
+    } else {
+      holidayCalendar[i].style.backgroundColor = newColorChanges;
+    }
+  }
+}
+clickHoliday();
+
+function fridayButton() { 
+  let divBtn = document.querySelector(".buttons-container");
+  let btnFriday = document.createElement("button");
+  btnFriday.innerHTML = "Sexta-Feira";
+  btnFriday.id = "btn-friday";
+  divBtn.appendChild(btnFriday);
+}
+fridayButton();
